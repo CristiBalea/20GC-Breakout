@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dpwwvkfv48suw"]
+
+[ext_resource type="Script" uid="uid://dt5xtc30siyuo" path="res://Scenes/Ball/Ball.gd" id="1_dvc57"]
+[ext_resource type="Shader" uid="uid://c1okfydrs6ncb" path="res://new_shader.gdshader" id="1_xo6r3"]
+[ext_resource type="Texture2D" uid="uid://cgorudnxwbbga" path="res://Assets/Ball_Green_Glossy-32x32.png" id="2_dvc57"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_75gsl"]
+shader = ExtResource("1_xo6r3")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xo6r3"]
+radius = 14.142136
+
+[node name="Ball" type="CharacterBody2D" unique_id=213395991]
+script = ExtResource("1_dvc57")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1384734212]
+material = SubResource("ShaderMaterial_75gsl")
+texture = ExtResource("2_dvc57")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=670614205]
+shape = SubResource("CircleShape2D_xo6r3")

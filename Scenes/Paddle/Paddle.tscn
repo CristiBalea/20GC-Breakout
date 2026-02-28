@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cvstwnwbs75xl"]
+
+[ext_resource type="Script" uid="uid://6bua83dj7est" path="res://Scenes/Paddle/Paddle.gd" id="1_kqrbk"]
+[ext_resource type="Texture2D" uid="uid://blum1pi2gge8h" path="res://Assets/Paddle_A_Blue_128x28.png" id="1_p4bap"]
+[ext_resource type="Shader" uid="uid://bcrl3sd7yslfu" path="res://Scenes/Paddle/Paddle.gdshader" id="1_wuola"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p4bap"]
+shader = ExtResource("1_wuola")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wuola"]
+radius = 13.0
+height = 124.0
+
+[node name="Paddle" type="CharacterBody2D" unique_id=1452424391]
+motion_mode = 1
+script = ExtResource("1_kqrbk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1166512688]
+material = SubResource("ShaderMaterial_p4bap")
+texture = ExtResource("1_p4bap")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1236423219]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_wuola")
