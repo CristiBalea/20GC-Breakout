@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://vsyohyh1ihtn"]
 
 [ext_resource type="Texture2D" uid="uid://bdojyt3fgwsca" path="res://Assets/bricks.png" id="1_rrew5"]
+[ext_resource type="Script" uid="uid://deb63wvv3lpk7" path="res://Scenes/Brick/Brick.gd" id="1_tjjil"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tjjil"]
 radius = 5.0
@@ -8,6 +9,7 @@ height = 32.0
 
 [node name="Brick" type="StaticBody2D" unique_id=1556854189]
 scale = Vector2(2.5, 2.5)
+script = ExtResource("1_tjjil")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1239114497]
 texture = ExtResource("1_rrew5")
