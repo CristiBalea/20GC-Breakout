@@ -16,11 +16,12 @@ texture = ExtResource("1_rrew5")
 offset = Vector2(0, -3.5)
 hframes = 3
 vframes = 6
-frame = 3
+frame = 6
 region_enabled = true
 region_rect = Rect2(0, -0.060043335, 96, 96.06004)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=535552027]
-position = Vector2(-3.6060042e-14, 2.3841858e-07)
+visible = false
+position = Vector2(0, 1.4210855e-14)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_tjjil")
