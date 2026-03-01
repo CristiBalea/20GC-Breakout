@@ -7,15 +7,15 @@ class_name Paddle
 @onready var sprite2d: Sprite2D = $Sprite2D
 
 
-const SPEED: float = 300.0
+const SPEED: float = 500.0
 
 
 var _paddle_size: int
 
 
-func _enter_tree() -> void:
+func _ready() -> void:
 	add_to_group(Constants.PADDLE_GROUP)
-
+	_paddle_size = sprite2d.texture.get_width()
 
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("left", "right")
@@ -29,5 +29,4 @@ func _physics_process(delta: float) -> void:
 	position.x = clampf(position.x, 0,screen_viewport.x)
 	position.y = clampf(position.y, 0,screen_viewport.y)
 	
-	_paddle_size = sprite2d.texture.get_width()
 	move_and_slide()

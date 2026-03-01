@@ -28,7 +28,7 @@ position = Vector2(801, -64)
 rotation = 1.5707964
 
 [node name="Paddle" parent="." unique_id=1452424391 instance=ExtResource("3_xbxml")]
-position = Vector2(352, 570)
+position = Vector2(390, 572)
 
 [node name="Ball" parent="." unique_id=979616396 node_paths=PackedStringArray("paddle") instance=ExtResource("4_ln2h6")]
 position = Vector2(333, 360)

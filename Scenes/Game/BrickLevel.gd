@@ -76,7 +76,6 @@ func get_random_brick_type(weight_dict: Dictionary) -> Constants.BRICK_TEXTURE:
 	for type in weight_dict:
 		cursor += weight_dict[type]
 		if roll < cursor:
-			print(type)
 			return type
 			
 	return Constants.BRICK_TEXTURE.YELLOW 
