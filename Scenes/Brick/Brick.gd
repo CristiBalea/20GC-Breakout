@@ -12,7 +12,6 @@ class_name Brick
 @onready var sprite2d: Sprite2D = $Sprite2D
 
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	add_to_group(Constants.BRICK_GROUP)

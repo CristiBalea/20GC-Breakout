@@ -28,10 +28,10 @@ position = Vector2(801, -64)
 rotation = 1.5707964
 
 [node name="Paddle" parent="." unique_id=1452424391 instance=ExtResource("3_xbxml")]
-position = Vector2(390, 572)
+position = Vector2(389, 571)
 
 [node name="Ball" parent="." unique_id=979616396 node_paths=PackedStringArray("paddle") instance=ExtResource("4_ln2h6")]
-position = Vector2(333, 360)
+position = Vector2(335, 357)
 paddle = NodePath("../Paddle")
 
 [node name="BrickLevel" type="Node2D" parent="." unique_id=1430903339]
