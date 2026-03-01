@@ -19,17 +19,18 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var collision: KinematicCollision2D = move_and_collide(velocity * delta)
-	print(collision)
 	if collision:
+		var collider: Object = collision.get_collider()
 		# 1. Reflect the velocity based on the surface normal
 		# The 'normal' is a vector pointing straight out of the surface hit
 		velocity = velocity.bounce(collision.get_normal())
 		
-		if collision.get_collider().is_in_group(Constants.PADDLE_GROUP):
+		if collider.is_in_group(Constants.PADDLE_GROUP):
 			handle_paddle_hit(initial_speed)
 		
-		if collision.get_collider().is_in_group(Constants.BRICK_GROUP):
-			pass
+		if collider.is_in_group(Constants.BRICK_GROUP):
+			if collider.has_method("hit"):
+				collider.hit()
 
 
 func handle_paddle_hit(speed):

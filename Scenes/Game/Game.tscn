@@ -5,10 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://cx58khq586ghe" path="res://Scenes/Wall/Wall.tscn" id="2_gwu2e"]
 [ext_resource type="PackedScene" uid="uid://cvstwnwbs75xl" path="res://Scenes/Paddle/Paddle.tscn" id="3_xbxml"]
 [ext_resource type="PackedScene" uid="uid://dpwwvkfv48suw" path="res://Scenes/Ball/Ball.tscn" id="4_ln2h6"]
-[ext_resource type="PackedScene" uid="uid://vsyohyh1ihtn" path="res://Scenes/Brick/Brick.tscn" id="5_y3kpf"]
+[ext_resource type="Script" uid="uid://dbve7sbwa4om" path="res://Scenes/Game/BrickLevel.gd" id="6_1q8bt"]
 
 [node name="Game" type="Node2D" unique_id=295078218 node_paths=PackedStringArray("ball")]
-position = Vector2(-8, 2)
 script = ExtResource("1_3k6gv")
 ball = NodePath("Ball")
 
@@ -21,7 +20,7 @@ hframes = 8
 [node name="Wall" parent="." unique_id=690795898 instance=ExtResource("2_gwu2e")]
 
 [node name="Wall2" parent="." unique_id=860006944 instance=ExtResource("2_gwu2e")]
-position = Vector2(-10, -87)
+position = Vector2(-3, -88)
 rotation = 1.5707964
 
 [node name="Wall3" parent="." unique_id=1835933421 instance=ExtResource("2_gwu2e")]
@@ -32,23 +31,10 @@ rotation = 1.5707964
 position = Vector2(352, 570)
 
 [node name="Ball" parent="." unique_id=979616396 node_paths=PackedStringArray("paddle") instance=ExtResource("4_ln2h6")]
-position = Vector2(-5, -1)
+position = Vector2(333, 360)
 paddle = NodePath("../Paddle")
 
-[node name="Brick" parent="." unique_id=1556854189 instance=ExtResource("5_y3kpf")]
-position = Vector2(313, 39)
-
-[node name="Brick2" parent="." unique_id=306261787 instance=ExtResource("5_y3kpf")]
-position = Vector2(438, 137)
-
-[node name="Brick3" parent="." unique_id=130370772 instance=ExtResource("5_y3kpf")]
-position = Vector2(220, 121.99999)
-
-[node name="Brick4" parent="." unique_id=545644360 instance=ExtResource("5_y3kpf")]
-position = Vector2(625, 122)
-
-[node name="Brick5" parent="." unique_id=249111480 instance=ExtResource("5_y3kpf")]
-position = Vector2(476, 41.000004)
-
-[node name="Brick6" parent="." unique_id=1591205159 instance=ExtResource("5_y3kpf")]
-position = Vector2(121.000015, 38.000004)
+[node name="BrickLevel" type="Node2D" parent="." unique_id=1430903339]
+position = Vector2(3, -3)
+script = ExtResource("6_1q8bt")
+columns = 9

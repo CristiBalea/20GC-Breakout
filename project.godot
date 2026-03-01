@@ -15,6 +15,10 @@ run/main_scene="uid://y3x56jmdcxqq"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+TweenFX="*uid://d2n10rw2dnx8o"
+
 [display]
 
 window/size/viewport_width=800
@@ -24,6 +28,10 @@ window/size/viewport_height=600
 
 naming/scene_name_casing=1
 naming/script_name_casing=1
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/TweenFX/plugin.cfg")
 
 [input]
 
