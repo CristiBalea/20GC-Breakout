@@ -48,7 +48,6 @@ func _ready() -> void:
 
 func create_level(level: String) -> void:
 	var internal_name = Levels[level]
-	# Use 'get' to find the dictionary variable with that name
 	var weight_data = get(internal_name) 
 	
 	if weight_data is Dictionary:
@@ -80,4 +79,4 @@ func get_random_brick_type(weight_dict: Dictionary) -> Constants.BRICK_TEXTURE:
 			print(type)
 			return type
 			
-	return Constants.BRICK_TEXTURE.YELLOW # Fallback
+	return Constants.BRICK_TEXTURE.YELLOW 

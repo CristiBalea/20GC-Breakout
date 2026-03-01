@@ -49,9 +49,9 @@ func set_level_one_bricks(brick_texture: Constants.BRICK_TEXTURE, pos_x: float, 
 			is_invulnerable = true
 			initial_health = 99
 		Constants.BRICK_TEXTURE.YELLOW:
-			initial_health = 1
-		Constants.BRICK_TEXTURE.Green:
 			initial_health = 2
+		Constants.BRICK_TEXTURE.Green:
+			initial_health = 1
 		Constants.BRICK_TEXTURE.RED:
 			initial_health = 3
 
