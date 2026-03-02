@@ -1,12 +1,25 @@
 [gd_scene format=3 uid="uid://ijbqxiuejs2c"]
 
+[ext_resource type="Script" uid="uid://dv1tcq8ep746r" path="res://Scenes/GameOverUi/GameOverUi.gd" id="1_j2od3"]
+
 [node name="GameOverUi" type="Control" unique_id=806215358]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_j2od3")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1965688356]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.20392157, 0.23921569, 0.5882353, 0.3137255)
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1924855319]
 layout_mode = 1
@@ -16,8 +29,27 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1987860660]
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=124745060]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="Game Over" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1746107499]
+[node name="GameOverLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1746107499]
 layout_mode = 2
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CurrentSCoreLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1414570042]
+layout_mode = 2
+text = "Score: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer" unique_id=274597868]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.93333334, 0.16862746, 0.8745098, 1)
+theme_override_colors/icon_focus_color = Color(0, 0.7016995, 0.7993839, 1)
+text = "Restart"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]

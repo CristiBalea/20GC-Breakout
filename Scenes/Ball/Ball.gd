@@ -75,5 +75,3 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	Signals.on_missed_ball.emit(_remaining_balls)
 	_is_active = false
 	_can_launch = true
-	if _remaining_balls < 0:
-		get_tree().paused = true

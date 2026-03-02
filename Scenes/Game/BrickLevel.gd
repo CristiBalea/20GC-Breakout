@@ -3,35 +3,26 @@ extends Node2D
 
 class_name BrickLevel
 
-
+@export var difficulty_level: String = "hard"
 @export var columns: int = 10
 @export var rows: int = 5
 @export var spacing: Vector2 = Vector2(80, 36) # Width and Height of your brick + gap
 @export var start_pos: Vector2 = Vector2(75, 50) # Top-left corner of the grid
 
 
-var Levels: Dictionary[Variant, Variant] = {
-	"LevelOne": "level_one",
-	"LevelTwo": "level_two",
-	"LevelThree": "level_three"
-}
-
-
-var level_one: Dictionary[Variant, Variant] = {
+var easy: Dictionary[Variant, Variant] = {
 		Constants.BRICK_TEXTURE.GRAY: 5,
 		Constants.BRICK_TEXTURE.YELLOW: 30,
-		Constants.BRICK_TEXTURE.Green: 65,
-		Constants.BRICK_TEXTURE.RED: 0
-	}
-
-var level_two: Dictionary[Variant, Variant] = {
-		Constants.BRICK_TEXTURE.GRAY: 25,
-		Constants.BRICK_TEXTURE.YELLOW: 15,
-		Constants.BRICK_TEXTURE.Green: 55,
+		Constants.BRICK_TEXTURE.Green: 60,
 		Constants.BRICK_TEXTURE.RED: 5
 	}
-	
-var level_three: Dictionary[Variant, Variant] = {
+var medium: Dictionary[Variant, Variant] = {
+		Constants.BRICK_TEXTURE.GRAY: 10,
+		Constants.BRICK_TEXTURE.YELLOW: 30,
+		Constants.BRICK_TEXTURE.Green: 50,
+		Constants.BRICK_TEXTURE.RED: 10
+	}
+var hard: Dictionary[Variant, Variant] = {
 	Constants.BRICK_TEXTURE.GRAY: 25,
 	Constants.BRICK_TEXTURE.YELLOW: 15,
 	Constants.BRICK_TEXTURE.Green: 40,
@@ -43,15 +34,15 @@ const brick: PackedScene = preload("res://Scenes/Brick/Brick.tscn")
 
 
 func _ready() -> void:
-	create_level("LevelThree")
+	create_level(difficulty_level)
 
 
 func create_level(level: String) -> void:
-	var internal_name = Levels[level]
-	var weight_data = get(internal_name) 
+	var weight_data = get(difficulty_level) 
 	
 	if weight_data is Dictionary:
 		generate_blocks(weight_data)
+
 
 func generate_blocks(weight_data: Dictionary) -> void:
 	for r in rows:

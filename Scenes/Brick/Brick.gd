@@ -7,6 +7,7 @@ class_name Brick
 @export var initial_health: int = 1
 @export var is_invulnerable: bool = false
 @export var brick_color: int = 3
+@export var brick_score: int = 0
 
 @onready var collision_shape2d: CollisionShape2D = $CollisionShape2D
 @onready var sprite2d: Sprite2D = $Sprite2D
@@ -29,13 +30,13 @@ func hit() -> void:
 	damage_brick()
 		
 
-
 func damage_brick() -> void:
 	if initial_health == 0:
-			collision_shape2d.set_deferred("disabled", true)
-#			TweenFX.pop_out(self, 0.1)
-#			await TweenFX.pop_out(self).finished
-			queue_free()
+		Signals.emit_on_brick_destroyed(brick_score)
+		collision_shape2d.set_deferred("disabled", true)
+		TweenFX.pop_out(self, 0.1)
+		await TweenFX.pop_out(self).finished
+		queue_free()
 	brick_color += 1
 	set_brick_texture(brick_color)
 
@@ -49,10 +50,13 @@ func set_level_one_bricks(brick_texture: Constants.BRICK_TEXTURE, pos_x: float, 
 			initial_health = 99
 		Constants.BRICK_TEXTURE.YELLOW:
 			initial_health = 2
+			brick_score = 3
 		Constants.BRICK_TEXTURE.Green:
 			initial_health = 1
+			brick_score = 1
 		Constants.BRICK_TEXTURE.RED:
 			initial_health = 3
+			brick_score = 5
 
 	if is_node_ready():
 		set_brick_texture(brick_color)

@@ -12,10 +12,6 @@ radius = 14.142136
 
 [node name="Ball" type="CharacterBody2D" unique_id=213395991]
 script = ExtResource("1_dvc57")
-initial_speed = null
-speed_multiplier = null
-max_speed = null
-lives = null
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1384734212]
 material = SubResource("ShaderMaterial_75gsl")

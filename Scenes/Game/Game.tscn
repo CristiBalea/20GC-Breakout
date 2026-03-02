@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://daj1uwh5iieyt" path="res://Scenes/Game/Game.gd" id="1_3k6gv"]
 [ext_resource type="Texture2D" uid="uid://ctoycedqnns3m" path="res://Assets/Backround_Tiles.png" id="1_rdw05"]
 [ext_resource type="PackedScene" uid="uid://cx58khq586ghe" path="res://Scenes/Wall/Wall.tscn" id="2_gwu2e"]
+[ext_resource type="Script" uid="uid://bffgyw5xebhlv" path="res://Classes/ScoreManager.gd" id="3_gvja8"]
 [ext_resource type="PackedScene" uid="uid://cvstwnwbs75xl" path="res://Scenes/Paddle/Paddle.tscn" id="3_xbxml"]
 [ext_resource type="PackedScene" uid="uid://dpwwvkfv48suw" path="res://Scenes/Ball/Ball.tscn" id="4_ln2h6"]
+[ext_resource type="PackedScene" uid="uid://ijbqxiuejs2c" path="res://Scenes/GameOverUi/GameOverUi.tscn" id="5_m1o7v"]
 [ext_resource type="Script" uid="uid://dbve7sbwa4om" path="res://Scenes/Game/BrickLevel.gd" id="6_1q8bt"]
 [ext_resource type="PackedScene" uid="uid://003oyhqub20e" path="res://Scenes/GameUi/GameUi.tscn" id="7_1q8bt"]
 
@@ -19,9 +21,18 @@ scale = Vector2(28.34375, 9.3125)
 texture = ExtResource("1_rdw05")
 hframes = 8
 
+[node name="ScoreManager" type="Node" parent="." unique_id=1395987758]
+script = ExtResource("3_gvja8")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1109024092]
 
-[node name="GameUi" parent="CanvasLayer" unique_id=906374165 instance=ExtResource("7_1q8bt")]
+[node name="GameUi" parent="CanvasLayer" unique_id=906374165 node_paths=PackedStringArray("score_manager", "brick_level") instance=ExtResource("7_1q8bt")]
+score_manager = NodePath("../../ScoreManager")
+brick_level = NodePath("../../BrickLevel")
+
+[node name="GameOverUi" parent="CanvasLayer" unique_id=806215358 node_paths=PackedStringArray("score_manager") instance=ExtResource("5_m1o7v")]
+visible = false
+score_manager = NodePath("../../ScoreManager")
 
 [node name="Wall" parent="." unique_id=690795898 instance=ExtResource("2_gwu2e")]
 
@@ -38,12 +49,8 @@ position = Vector2(204, 564)
 
 [node name="Ball" parent="." unique_id=979616396 node_paths=PackedStringArray("paddle") instance=ExtResource("4_ln2h6")]
 position = Vector2(335, 357)
-initial_speed = 400.0
-speed_multiplier = 1.01
-max_speed = 650.0
 paddle = NodePath("../Paddle")
 
 [node name="BrickLevel" type="Node2D" parent="." unique_id=1430903339]
-position = Vector2(3, -3)
 script = ExtResource("6_1q8bt")
 columns = 9
