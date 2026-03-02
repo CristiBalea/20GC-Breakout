@@ -53,4 +53,6 @@ paddle = NodePath("../Paddle")
 
 [node name="BrickLevel" type="Node2D" parent="." unique_id=1430903339]
 script = ExtResource("6_1q8bt")
-columns = 9
+difficulty_level = "easy"
+columns = 1
+rows = 1

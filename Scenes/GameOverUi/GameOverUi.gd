@@ -14,7 +14,7 @@ func _ready() -> void:
 
 
 func on_missed_ball(lives: int) -> void:
-	if lives < 0:
+	if lives <= 0:
 		current_s_core_label.text = "%d" % score_manager._score
 		show()
 

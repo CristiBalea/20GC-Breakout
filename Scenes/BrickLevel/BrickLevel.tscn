@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://s48o0k4vrqkf"]
+
+[ext_resource type="Script" uid="uid://dbve7sbwa4om" path="res://Scenes/Game/BrickLevel.gd" id="1_xkoun"]
+
+[node name="BrickLevel" type="Node2D" unique_id=1779395843]
+script = ExtResource("1_xkoun")
+columns = 9
