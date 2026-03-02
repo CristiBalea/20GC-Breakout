@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+Signals="*uid://b1n2qxfntxy6c"
 TweenFX="*uid://d2n10rw2dnx8o"
 
 [display]

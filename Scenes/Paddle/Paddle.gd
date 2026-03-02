@@ -12,10 +12,10 @@ const SPEED: float = 500.0
 
 var _paddle_size: int
 
-
 func _ready() -> void:
 	add_to_group(Constants.PADDLE_GROUP)
 	_paddle_size = sprite2d.texture.get_width()
+	respawn_paddle()
 
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("left", "right")
@@ -27,6 +27,9 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	position.x = clampf(position.x, 0,screen_viewport.x)
-	position.y = clampf(position.y, 0,screen_viewport.y)
 	
 	move_and_slide()
+
+func respawn_paddle() -> void:
+	position.x = get_viewport_rect().size.x / 2
+	position.y = get_viewport_rect().size.y - 30

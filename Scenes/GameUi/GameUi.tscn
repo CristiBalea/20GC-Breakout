@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://003oyhqub20e"]
+
+[ext_resource type="Script" uid="uid://bl4882x0qun8q" path="res://Scenes/GameUi/GameUi.gd" id="1_mmc4y"]
+[ext_resource type="Texture2D" uid="uid://cgorudnxwbbga" path="res://Assets/Ball_Green_Glossy-32x32.png" id="2_anb74"]
+
+[node name="GameUi" type="Control" unique_id=906374165]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mmc4y")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1248305631]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1200272062]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=89733509]
+layout_mode = 2
+texture = ExtResource("2_anb74")
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=2045259439]
+layout_mode = 2
+texture = ExtResource("2_anb74")
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1183591714]
+layout_mode = 2
+texture = ExtResource("2_anb74")

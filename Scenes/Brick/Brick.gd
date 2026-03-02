@@ -33,8 +33,8 @@ func hit() -> void:
 func damage_brick() -> void:
 	if initial_health == 0:
 			collision_shape2d.set_deferred("disabled", true)
-			TweenFX.pop_out(self, 0.1)
-			await TweenFX.pop_out(self).finished
+#			TweenFX.pop_out(self, 0.1)
+#			await TweenFX.pop_out(self).finished
 			queue_free()
 	brick_color += 1
 	set_brick_texture(brick_color)

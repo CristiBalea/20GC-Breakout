@@ -12,6 +12,10 @@ radius = 14.142136
 
 [node name="Ball" type="CharacterBody2D" unique_id=213395991]
 script = ExtResource("1_dvc57")
+initial_speed = null
+speed_multiplier = null
+max_speed = null
+lives = null
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1384734212]
 material = SubResource("ShaderMaterial_75gsl")
@@ -19,3 +23,7 @@ texture = ExtResource("2_dvc57")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=670614205]
 shape = SubResource("CircleShape2D_xo6r3")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1384660736]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -2,16 +2,13 @@ extends Node2D
 
 
 @export var ball: Ball
-
-
-var _can_launch: bool
+@export var paddle: Paddle
 
 
 func _ready() -> void:
-	_can_launch = true
+	Signals.on_missed_ball.connect(on_missed_ball)
+	
 
-
-func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("launch") and _can_launch:
-		ball.launch_ball()
-		_can_launch = false
+func on_missed_ball(lives: int) -> void:
+	ball.prepare_launch_ball()
+	paddle.respawn_paddle()
